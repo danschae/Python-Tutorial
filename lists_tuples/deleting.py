@@ -13,3 +13,20 @@ for index, value in enumerate(data):
 
 del data[:stop]
 print(data)
+
+start = 0
+for index in range(len(data) -1, -1, -1):
+  if data[index] <= max_valid:
+    start = index + 1
+    break
+
+print(start)
+del data[start:]
+print(data)
+
+top_index = len(data) - 1
+
+for index, value in enumerate(reversed(data)):
+  if value < min_valid or value > max_valid:
+    del data[top_index - index]
+  print(data)
